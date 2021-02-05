@@ -18,7 +18,8 @@ module.exports = (sequelize, Sequelize) => {
       allowNull: false
     }
   }, {
-    tableName: 'project'
+    tableName: 'project',
+    timestamps: false
   });
 
   return Project;

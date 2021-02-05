@@ -1,6 +1,6 @@
 const db = require("../models");
 const config = require("../config/auth.config");
-const User = db.user;
+const User = db.app_user;
 
 const Op = db.Sequelize.Op;
 
@@ -14,6 +14,7 @@ exports.signup = (req, res) => {
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 8)
   })
+    .then(res.send({message: "User was registered successfully!"}))
     .catch(err => {
       res.status(500).send({ message: err.message });
     });
@@ -45,6 +46,13 @@ exports.signin = (req, res) => {
     var token = jwt.sign({ id: user.id }, config.secret, {
       expiresIn: 86400 // 24 hours
     });
+
+    res.status(200).send({
+      id: user.id,
+      username: user.username,
+      email: user.email,
+      accessToken: token
+    })
   })
   .catch(err => {
     res.status(500).send({ message: err.message });

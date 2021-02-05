@@ -1,4 +1,3 @@
-const { app_user, task } = require(".");
 const app_userModel = require("./app_user.model");
 const taskModel = require("./task.model");
 
@@ -34,7 +33,8 @@ module.exports = (sequelize, Sequelize) => {
       }
     }
   }, {
-    tableName: 'app_session'
+    tableName: 'app_session',
+    timestamps: false
   });
 
   return App_Session;

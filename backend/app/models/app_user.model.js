@@ -8,21 +8,22 @@ module.exports = (sequelize, Sequelize) => {
     },
     username: {
       type: Sequelize.STRING,
+      allowNull: false
+    },
+    email: {
+      type: Sequelize.STRING,
       allowNull: false,
       validate: {
         isEmail: true
       }
-    },
-    email: {
-      type: Sequelize.STRING,
-      allowNull: false
     },
     password: {
       type: Sequelize.STRING,
       allowNull: false
     }
   }, {
-    tableName: 'app_user'
+    tableName: 'app_user',
+    timestamps: false
   });
 
   return App_User;

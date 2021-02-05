@@ -24,7 +24,8 @@ module.exports = (sequelize, Sequelize) => {
       }
     }
   }, {
-    tableName: 'task'
+    tableName: 'task',
+    timestamps: false
   });
 
   return Task;

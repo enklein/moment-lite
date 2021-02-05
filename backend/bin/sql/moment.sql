@@ -7,7 +7,7 @@ CREATE TABLE app_user (
   user_uuid UUID NOT NULL DEFAULT uuid_generate_v4() PRIMARY KEY,
   username VARCHAR(32) NOT NULL UNIQUE,
   email VARCHAR(100) NOT NULL UNIQUE,
-  password VARCHAR(52) NOT NULL
+  password VARCHAR(250) NOT NULL
 );
 
 CREATE TABLE app_session (
