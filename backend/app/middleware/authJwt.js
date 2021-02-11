@@ -1,7 +1,6 @@
 const jwt = require("jsonwebtoken");
 const config = require("../config/auth.config.js");
 const db = require("../models");
-const User = db.app_user;
 
 verifyToken = (req, res, next) => {
   let token = req.headers["x-access-token"];
@@ -18,7 +17,8 @@ verifyToken = (req, res, next) => {
         message: "Unauthorized!"
       });
     }
-    req.userId = decoded.id;
+    req.user_uuid = decoded.user_uuid;
+    // req.username = decoded.username; // this will need to have the username added into the token on creation in auth.controller
     next();
   });
 };
