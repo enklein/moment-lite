@@ -39,7 +39,7 @@ exports.newSession = (req, res) => {
     session_start: req.body.session_start,
     session_note: req.body.session_note,
     user_uuid: req.user_uuid,
-    task_uuid: req.body.session_task_uuid
+    task_uuid: req.body.task_uuid
   })
   .then(res.status(201).send({message: "Session was created successfully!"}))
   .catch(err => {
@@ -48,19 +48,29 @@ exports.newSession = (req, res) => {
 }
 
 exports.updateSession = (req, res) => {
-  // Save session to db
-  Session.update({
+  // Save session update to db
+  console.log("Starting update")
+  console.log(
+      "Session contents",
+      "Session start is ", req.body.session_start,
+      "Session end is ", req.body.session_end,
+      "Session note is ",req.body.session_note,
+      "Session user_uuid is ",req.body.user_uuid,
+      "Session task_uuid is ",req.body.task_uuid,
+      "Session params session id is ",req.params.session_uuid
+    )
+  Session.update(
+    {
     session_start: req.body.session_start,
     session_end: req.body.session_end,
     session_note: req.body.session_note,
-    user_uuid: req.body.session_user_uuid,
-    task_uuid: req.body.session_task_uuid
-  })
-  .then(res.send({message: "Session was updated successfully!"}))
+    user_uuid: req.body.user_uuid,
+    task_uuid: req.body.task_uuid
+  },
+    {where: {session_uuid: req.params.session_uuid} }
+  )
+  .then(res.status(200).send({message: "Session was updated successfully!"}))
   .catch(err => {
     res.status(500).send({ message: err.message });
   });
-
-  res.status(201).send("Session creation.");
-  console.log("Creating a session", req.body);
 }

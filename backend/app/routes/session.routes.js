@@ -33,7 +33,7 @@ module.exports = function(app) {
 
   // update a session
   app.put(
-    "/api/user/session/update/:id",
+    "/api/user/session/update/:session_id",
     [authJwt.verifyToken],
     controller.updateSession
   )
