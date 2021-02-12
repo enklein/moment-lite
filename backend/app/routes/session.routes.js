@@ -19,7 +19,7 @@ module.exports = function(app) {
 
   // get specific sessions
   app.get(
-    "/api/user/session/:session_id",
+    "/api/user/session/:session_uuid",
     [authJwt.verifyToken],
     controller.getSession
   )
@@ -33,7 +33,7 @@ module.exports = function(app) {
 
   // update a session
   app.put(
-    "/api/user/session/update/:session_id",
+    "/api/user/session/:session_uuid",
     [authJwt.verifyToken],
     controller.updateSession
   )

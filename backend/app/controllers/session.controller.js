@@ -23,7 +23,7 @@ exports.getSession = (req, res) => {
   console.log("Finding session")
   Session.findOne({
     where: {
-      session_uuid: req.params.session_id
+      session_uuid: req.params.session_uuid
     }
   }).then(session => {
     res.status(201).send(session)
@@ -49,28 +49,36 @@ exports.newSession = (req, res) => {
 
 exports.updateSession = (req, res) => {
   // Save session update to db
-  console.log("Starting update")
-  console.log(
-      "Session contents",
-      "Session start is ", req.body.session_start,
-      "Session end is ", req.body.session_end,
-      "Session note is ",req.body.session_note,
-      "Session user_uuid is ",req.body.user_uuid,
-      "Session task_uuid is ",req.body.task_uuid,
-      "Session params session id is ",req.params.session_uuid
-    )
+
+  const { id } = req.params.session_uuid;
+
+  const old_session = Session.findOne({
+    where: {
+      session_uuid: req.params.session_uuid
+    }
+  });
+
+  ['session_start', 'session_end', 'session_note', 'user_uuid', 'task_uuid'].forEach(key => {
+    if (req.body[key]) old_session[key] = req.body[key];
+  });
+
+  console.log("Starting an update with ", old_session);
+
   Session.update(
     {
-    session_start: req.body.session_start,
-    session_end: req.body.session_end,
-    session_note: req.body.session_note,
-    user_uuid: req.body.user_uuid,
-    task_uuid: req.body.task_uuid
-  },
-    {where: {session_uuid: req.params.session_uuid} }
+      session_start: old_session['session_start'],
+      session_end: old_session['session_end'],
+      session_note: old_session['session_note'],
+      user_uuid: old_session['user_uuid'],
+      task_uuid: old_session['task_uuid']
+    },
+    {
+      where: {session_uuid: req.params.session_uuid}
+    }
   )
   .then(res.status(200).send({message: "Session was updated successfully!"}))
   .catch(err => {
+    console.log("Catch console message ", req.params.session_uuid)
     res.status(500).send({ message: err.message });
   });
 }
