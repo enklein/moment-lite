@@ -24,21 +24,21 @@ module.exports = function(app) {
     controller.updateTask
   )
 
-  // Delete a task by ID controller.deleteTask
+  // Delete a task by ID
   app.delete(
     "/api/task/:task_uuid",
     [authJwt.verifyToken],
     controller.deleteTask
   )
 
-  // Get all tasks for a given user controller.getAllTasks
+  // Get all tasks for a given user
   app.get(
     "/api/task/",
     [authJwt.verifyToken],
     controller.getAllTasks
   )
 
-  // Get a specific task by ID controller.getTask
+  // Get a specific task by ID
   app.get(
     "/api/task/:task_uuid",
     [authJwt.verifyToken],

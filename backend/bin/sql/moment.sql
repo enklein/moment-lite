@@ -31,7 +31,7 @@ CREATE TABLE project (
   project_uuid UUID NOT NULL DEFAULT uuid_generate_v4() PRIMARY KEY,
   project_name VARCHAR(120) NOT NULL,
   project_description VARCHAR(15000) NOT NULL,
-  project_status INTEGER NOT NULL DEFAULT 0,
+  project_status INTEGER NOT NULL DEFAULT 1,
   user_uuid UUID NOT NULL
 );
 

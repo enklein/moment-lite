@@ -20,7 +20,8 @@ exports.getSession = (req, res) => {
   // Shows specific session by ID, must be the user's own session
   Session.findOne({
     where: {
-      session_uuid: req.params.session_uuid
+      session_uuid: req.params.session_uuid,
+      user_uuid: req.user_uuid
     }
   }).then(session => {
     res.status(201).send(session)
@@ -47,7 +48,8 @@ exports.updateSession = (req, res) => {
   // Save session update to db
   const old_session = Session.findOne({
     where: {
-      session_uuid: req.params.session_uuid
+      session_uuid: req.params.session_uuid,
+      user_uuid: req.user_uuid
     }
   });
 
@@ -64,7 +66,10 @@ exports.updateSession = (req, res) => {
       task_uuid: old_session['task_uuid']
     },
     {
-      where: {session_uuid: req.params.session_uuid}
+      where: {
+        session_uuid: req.params.session_uuid,
+        user_uuid: req.user_uuid
+      }
     }
   )
   .then(res.status(200).send({message: "Session was updated successfully!"}))
@@ -76,7 +81,10 @@ exports.updateSession = (req, res) => {
 exports.deleteSession = (req, res) => {
   // Delete a session
   Session.destroy({
-    where: {session_uuid: req.params.session_uuid}
+    where: {
+      session_uuid: req.params.session_uuid,
+      user_uuid: req.user_uuid
+    }
   })
   .then(res.status(200).send({message: "Session deleted."}))
   .catch(err => {

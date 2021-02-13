@@ -16,7 +16,7 @@ module.exports = (sequelize, Sequelize) => {
     },
     project_status: {
       type: Sequelize.INTEGER,
-      defaultValue: 0,
+      defaultValue: 1,
       allowNull: false
     },
     user_uuid: {
