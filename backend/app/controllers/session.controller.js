@@ -1,5 +1,4 @@
 const db = require("../models");
-const config = require("../config/auth.config");
 const Session = db.app_session;
 
 exports.getAllSessions = (req, res) => {
@@ -15,19 +14,16 @@ exports.getAllSessions = (req, res) => {
   }).catch(err => {
     res.status(500).send({ message: err.message });
   });
-  console.log(req.body);
 };
 
 exports.getSession = (req, res) => {
   // Shows specific session by ID, must be the user's own session
-  console.log("Finding session")
   Session.findOne({
     where: {
       session_uuid: req.params.session_uuid
     }
   }).then(session => {
     res.status(201).send(session)
-    console.log("Session found");
   }).catch(err => {
     res.status(500).send({ message: err.message });
   });
@@ -49,9 +45,6 @@ exports.newSession = (req, res) => {
 
 exports.updateSession = (req, res) => {
   // Save session update to db
-
-  const { id } = req.params.session_uuid;
-
   const old_session = Session.findOne({
     where: {
       session_uuid: req.params.session_uuid
@@ -61,8 +54,6 @@ exports.updateSession = (req, res) => {
   ['session_start', 'session_end', 'session_note', 'user_uuid', 'task_uuid'].forEach(key => {
     if (req.body[key]) old_session[key] = req.body[key];
   });
-
-  console.log("Starting an update with ", old_session);
 
   Session.update(
     {
@@ -78,7 +69,17 @@ exports.updateSession = (req, res) => {
   )
   .then(res.status(200).send({message: "Session was updated successfully!"}))
   .catch(err => {
-    console.log("Catch console message ", req.params.session_uuid)
+    res.status(500).send({ message: err.message });
+  });
+}
+
+exports.deleteSession = (req, res) => {
+  // Delete a session
+  Session.destroy({
+    where: {session_uuid: req.params.session_uuid}
+  })
+  .then(res.status(200).send({message: "Session deleted."}))
+  .catch(err => {
     res.status(500).send({ message: err.message });
   });
 }

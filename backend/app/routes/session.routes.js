@@ -12,29 +12,35 @@ module.exports = function(app) {
   
   // get all sessions
   app.get(
-    "/api/user/session/all",
+    "/api/session/all",
     [authJwt.verifyToken],
     controller.getAllSessions
   );
 
   // get specific sessions
   app.get(
-    "/api/user/session/:session_uuid",
+    "/api/session/:session_uuid",
     [authJwt.verifyToken],
     controller.getSession
   )
 
   // create a new session
   app.post(
-    "/api/user/session/new",
+    "/api/session/new",
     [authJwt.verifyToken],
     controller.newSession
   )
 
   // update a session
   app.put(
-    "/api/user/session/:session_uuid",
+    "/api/session/:session_uuid",
     [authJwt.verifyToken],
     controller.updateSession
+  )
+
+  app.delete(
+    "/api/session/:session_uuid",
+    [authJwt.verifyToken],
+    controller.deleteSession
   )
 };

@@ -1,3 +1,4 @@
+const app_userModel = require("./app_user.model");
 const projectModel = require("./project.model");
 
 module.exports = (sequelize, Sequelize) => {
@@ -13,8 +14,15 @@ module.exports = (sequelize, Sequelize) => {
     },
     task_status: {
       type: Sequelize.INTEGER,
-      defaultValue: 0,
+      defaultValue: 1,
       allowNull: false
+    },
+    user_uuid: {
+      type: Sequelize.UUID,
+      references: {
+        model: app_userModel,
+        key: 'user_uuid'
+      }
     },
     project_uuid: {
       type: Sequelize.UUID,
