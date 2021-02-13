@@ -12,7 +12,7 @@ module.exports = function(app) {
   
   // get all sessions
   app.get(
-    "/api/session/all",
+    "/api/session/",
     [authJwt.verifyToken],
     controller.getAllSessions
   );
@@ -26,7 +26,7 @@ module.exports = function(app) {
 
   // create a new session
   app.post(
-    "/api/session/new",
+    "/api/session",
     [authJwt.verifyToken],
     controller.newSession
   )
