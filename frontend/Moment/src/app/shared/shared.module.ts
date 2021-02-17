@@ -1,0 +1,34 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { SharedRoutingModule } from './shared-routing.module';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+import { NzTypographyModule } from 'ng-zorro-antd/typography';
+
+
+@NgModule({
+  declarations: [],
+  imports: [
+    CommonModule,
+    SharedRoutingModule,
+    NzFormModule,
+    NzInputModule,
+    ReactiveFormsModule,
+    NzButtonModule,
+    NzCheckboxModule,
+    NzTypographyModule
+  ],
+  exports: [
+    NzFormModule,
+    NzInputModule,
+    ReactiveFormsModule,
+    NzButtonModule,
+    NzCheckboxModule,
+    NzTypographyModule
+  ]
+})
+export class SharedModule { }

@@ -14,6 +14,8 @@ import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 
+import { SharedModule } from './shared/shared.module'
+
 registerLocaleData(en);
 
 @NgModule({
@@ -28,7 +30,8 @@ registerLocaleData(en);
     NzMenuModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SharedModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
