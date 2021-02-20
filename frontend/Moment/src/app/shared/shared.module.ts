@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
     ReactiveFormsModule,
     NzButtonModule,
     NzCheckboxModule,
-    NzTypographyModule
+    NzTypographyModule,
+    NzIconModule
   ],
   exports: [
     NzFormModule,
@@ -28,7 +30,8 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
     ReactiveFormsModule,
     NzButtonModule,
     NzCheckboxModule,
-    NzTypographyModule
+    NzTypographyModule,
+    NzIconModule
   ]
 })
 export class SharedModule { }

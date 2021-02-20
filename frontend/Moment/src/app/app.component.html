@@ -1,39 +1,42 @@
 <nz-layout class="app-layout">
-  <nz-sider class="menu-sidebar"
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <div class="sidebar-logo">
+          <a href="#" target="_blank" class="logo-holder">
+            <img class="logo-img" src="../assets/images/logo_img.png" alt="logo">
+            <h1>Moment</h1>
+          </a>
+        </div>
+      </div>
+    </nz-header>
+    <nz-layout>
+      <nz-sider class="menu-sidebar"
             nzTheme="light"
             nzWidth="256px"
             nzBreakpoint="md"
             [nzTrigger]="null">
-    <div class="sidebar-logo">
-      <a href="https://ng.ant.design/" target="_blank">
-        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
-        <h1>Ant Design Of Angular</h1>
-      </a>
-    </div>
-    <ul nz-menu nzTheme="light" nzMode="inline">
-      <li nz-menu-item nzMatchRouter>
-        <a routerLink="/auth">Login</a>
-      </li>
-      <li nz-menu-item nzMatchRouter>
-        <a>Timer</a>
-      </li>
-      <li nz-menu-item nzMatchRouter>
-        <a>Activity</a>
-      </li>
-      <li nz-menu-item nzMatchRouter>
-        <a>Projects Overview</a>
-      </li>
-    </ul>
-  </nz-sider>
-  <nz-layout>
-    <nz-header>
-      <div class="app-header">
-      </div>
-    </nz-header>
-    <nz-content>
-      <div class="inner-content">
-        <router-outlet></router-outlet>
-      </div>
-    </nz-content>
+        <ul nz-menu nzTheme="light" nzMode="inline">
+          <li nz-menu-item nzMatchRouter nzIcon="login">
+            <a routerLink="/auth">Login</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a>Timer</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a>Activity</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a>Projects Overview</a>
+          </li>
+        </ul>
+      </nz-sider>
+      <nz-content>
+        <div class="inner-content">
+          <router-outlet></router-outlet>
+        </div>
+      </nz-content>
+    </nz-layout>
+    
   </nz-layout>
 </nz-layout>
