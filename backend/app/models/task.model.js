@@ -23,13 +23,6 @@ module.exports = (sequelize, Sequelize) => {
         model: app_userModel,
         key: 'user_uuid'
       }
-    },
-    project_uuid: {
-      type: Sequelize.UUID,
-      references: {
-        model: projectModel,
-        key: 'project_uuid'
-      }
     }
   }, {
     tableName: 'task',

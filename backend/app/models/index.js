@@ -27,7 +27,6 @@ db.sequelize = sequelize;
 db.app_user = require("./app_user.model.js")(sequelize, Sequelize);
 db.app_session = require("./app_session.model.js")(sequelize, Sequelize);
 db.task = require("./task.model.js")(sequelize, Sequelize);
-db.project = require("./project.model.js")(sequelize, Sequelize);
 
 // // Test to see if it connection successful
 // sequelize.authenticate()

@@ -27,7 +27,6 @@ require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
 require('./app/routes/session.routes')(app);
 require('./app/routes/task.routes')(app);
-require('./app/routes/project.routes')(app);
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to Moment." });
 });
