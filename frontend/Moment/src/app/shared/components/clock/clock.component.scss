@@ -1,0 +1,106 @@
+.clock-container {
+  padding: 14px 24px;
+
+  // Flex Properties
+  display: flex;
+}
+
+.icon-button {
+  padding: 7px;
+}
+
+
+// Inactive
+.container-inactive {
+  /* Flex Properties */
+  justify-content: flex-end;
+}
+
+.start-button {
+  padding: 0px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  
+  /* Flex Properties */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.start-button-text {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  margin-right: 12px;
+
+  /* Geek Blue/7 */
+  color: #1D39C4;
+}
+
+.icon-button {
+  padding: 7px;
+}
+
+
+// Active
+.container-active {
+  color: white;
+  background: #1D39C4;
+
+  /* Flex Properties */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.active-session-left-button {
+  background: inherit;
+  text-align: left;
+  color: inherit;
+  border: none;
+  cursor: pointer;
+
+  /* Flex Properties */
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.task-name {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+
+  /* Flex Properties */
+  order: 0;
+}
+
+.session-note {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+
+  /* Flex Properties */
+  order: 1;
+}
+
+.active-time {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.pause-button {
+  background: inherit;
+  color: inherit;
+  border: none;
+  margin: 0px;
+  padding: 0px;
+  cursor: pointer;
+}

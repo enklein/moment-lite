@@ -1,0 +1,36 @@
+<h2 nz-typography class="margin-bottom-fix">Register</h2>
+<div nz-row class="register-form-margin">
+  <p>This app is for demo purposes only; all information is wiped regularly.<br>
+    Please use a unique password not already in use elsewhere.</p>
+</div>
+<form nz-form [formGroup]="validateForm" class="register-form" (ngSubmit)="submitForm()">
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Please input a valid email!">
+      <nz-input-group>
+        <input type="text" nz-input formControlName="email" placeholder="* Email" />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Please input your username!">
+      <nz-input-group>
+        <input type="text" nz-input formControlName="userName" placeholder="* Username" />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Please input your password!">
+      <nz-input-group>
+        <input type="password" nz-input formControlName="password" placeholder="* Password" />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Please confirm your password!">
+      <nz-input-group>
+        <input type="password" nz-input formControlName="password" placeholder="* Confirm Password" />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <button nz-button class="register-form-button register-form-margin" [nzType]="'primary'">Register</button>
+</form>

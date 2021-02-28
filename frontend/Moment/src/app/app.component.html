@@ -8,6 +8,14 @@
             <h1>Moment</h1>
           </a>
         </div>
+        <a class="login-logout-link" *ngIf="!loggedIn" routerLink="/auth/login">
+          <div>Login</div>
+          <img class="login-icon" src="../assets/images/icon-login.svg" alt="">
+        </a>
+        <a class="login-logout-link" *ngIf="loggedIn" routerLink="/auth/logout">
+          <div>Logout</div>
+          <img class="login-icon" src="../assets/images/icon-logout.svg" alt="">
+        </a>
       </div>
     </nz-header>
     <nz-layout>
@@ -17,17 +25,14 @@
             nzBreakpoint="md"
             [nzTrigger]="null">
         <ul nz-menu nzTheme="light" nzMode="inline">
-          <li nz-menu-item nzMatchRouter nzIcon="login">
+          <!-- <li nz-menu-item nzMatchRouter nzIcon="login">
             <a routerLink="/auth">Login</a>
-          </li>
+          </li> -->
           <li nz-menu-item nzMatchRouter>
-            <a>Timer</a>
+            <a>Tasks</a>
           </li>
           <li nz-menu-item nzMatchRouter>
             <a>Activity</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Projects Overview</a>
           </li>
         </ul>
       </nz-sider>
@@ -37,6 +42,12 @@
         </div>
       </nz-content>
     </nz-layout>
-    
+    <nz-footer *ngIf="loggedIn">
+      <nz-affix>
+        <div class="app-footer">
+          <app-clock></app-clock>
+        </div>
+      </nz-affix>
+    </nz-footer>
   </nz-layout>
 </nz-layout>

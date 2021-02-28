@@ -9,10 +9,12 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzAffixModule } from 'ng-zorro-antd/affix';
+import { ClockComponent } from './components/clock/clock.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [ClockComponent],
   imports: [
     CommonModule,
     SharedRoutingModule,
@@ -22,7 +24,8 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
     NzButtonModule,
     NzCheckboxModule,
     NzTypographyModule,
-    NzIconModule
+    NzIconModule,
+    NzAffixModule
   ],
   exports: [
     NzFormModule,
@@ -31,7 +34,9 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
     NzButtonModule,
     NzCheckboxModule,
     NzTypographyModule,
-    NzIconModule
+    NzIconModule,
+    NzAffixModule,
+    ClockComponent
   ]
 })
 export class SharedModule { }

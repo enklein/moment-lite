@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+.ant-layout-content {
+  margin: 0 !important;
+}
+
+.ant-layout {
+  background: #fff !important;
+}
+
+.ant-layout-footer {
+  padding: 0;
+  align-self:flex-end;
+}
