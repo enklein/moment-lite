@@ -1,3 +1,174 @@
 .margin-bottom-fix {
   margin-bottom: 0.5rem;
 }
+
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+
+.task-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  /* Inside Auto Layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin-top: 4px;
+}
+
+.task-contents {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: stretch;
+
+  /* Inside Auto Layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+.checkbox-label {
+  padding-left: 12px;
+
+  /* Inside Auto Layout */
+  flex-grow: 1;
+}
+
+.active-task-text {
+  color: rgba(0, 0, 0, 0.85);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.session-count-text {
+  color: #8C8C8C;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: right;
+  margin-right: 24px;
+}
+
+.task-time {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0px;
+  margin: 0px 12px;
+
+  flex-grow: 0;
+}
+
+.divider-horizontal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 0px 4px;
+
+  /* Inside Auto Layout */
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+.divider-horizontal {
+  border-top: 1px solid #F0F0F0;
+
+  /* Inside Auto Layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.new-task-row {
+  /* Auto Layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+
+  /* Inside Auto Layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 0px;
+  margin-top: 4px;
+
+  /* Button Overrides */
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.new-task-row:hover .icon-plus {
+  background-image: url("../../../assets/images/icon-plus-hover.svg")
+}
+
+.new-task-row:hover .new-task-text {
+  color: #096DD9;
+}
+
+.new-task-row:active .icon-plus {
+  background-image: url("../../../assets/images/icon-plus-hover.svg")
+}
+
+.new-task-row:active .new-task-text {
+  color: #096DD9;
+}
+
+.new-task-icon {
+  /* Auto Layout */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px 8px 0px 12px;
+
+  /* Inside Auto Layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+.icon-plus {
+  width: 16px;
+  height: 16px;
+  background-image: url("../../../assets/images/icon-plus.svg");
+}
+
+.new-task-text {
+  /* Auto Layout */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+
+  /* Inside Auto Layout */
+  flex: none;
+  order: 1;
+  flex-grow: 1;
+  margin: 0px 0px;
+
+  /* Text Style */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 0.45);
+}

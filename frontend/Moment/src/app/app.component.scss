@@ -70,8 +70,30 @@
   align-items: center;
 }
 
-.login-icon {
+.login-logout-link:hover {
+  color: #003A8C;
+}
+
+.auth-icon {
+  width: 24px;
+  height: 24px;
   margin-left: 12px;
+}
+
+.login-icon {
+  background-image: url("../assets/images/icon-login.svg");
+}
+
+.login-logout-link:hover .login-icon {
+  background-image: url("../assets/images/icon-login-hover.svg");
+}
+
+.logout-icon {
+  background-image: url("../assets/images/icon-logout.svg");
+}
+
+.login-logout-link:hover .logout-icon {
+  background-image: url("../assets/images/icon-logout-hover.svg");
 }
 
 nz-header {
@@ -98,8 +120,9 @@ nz-content {
 }
 
 .inner-content {
-  padding: 24px;
+  padding: 40px;
   background: #fff;
+  max-width: 1040px;
   // height: 100%;
 }
 

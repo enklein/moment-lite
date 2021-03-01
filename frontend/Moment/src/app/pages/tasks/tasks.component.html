@@ -1,1 +1,52 @@
 <h2 nz-typography class="margin-bottom-fix">Tasks</h2>
+<div class="tasks-list">
+
+  <div class="task-row">
+    <div class="task-contents">
+      <label nz-checkbox [(ngModel)]="taskStatus" class="checkbox-label active-task-text">Checkbox</label>
+      <div class="task-time">
+        <div class="session-count-text"> 1 session</div>
+        <div class="active-task-text">00:00:00</div>
+      </div>
+    </div>
+    <div class="divider-horizontal-container">
+      <div class="divider-horizontal"></div>
+    </div>
+  </div>
+  
+  <div class="task-row">
+    <div class="task-contents">
+      <label nz-checkbox [(ngModel)]="taskStatus" class="checkbox-label active-task-text">Checkbox</label>
+      <div class="task-time">
+        <div class="session-count-text"> 1 session</div>
+        <div class="active-task-text">00:00:00</div>
+      </div>
+    </div>
+    <div class="divider-horizontal-container">
+      <div class="divider-horizontal"></div>
+    </div>
+  </div>
+  
+  <div class="task-row">
+    <div class="task-contents">
+      <label nz-checkbox [(ngModel)]="taskStatus" class="checkbox-label active-task-text">Checkbox</label>
+      <div class="task-time">
+        <div class="session-count-text"> 1 session</div>
+        <div class="active-task-text">00:00:00</div>
+      </div>
+    </div>
+    <div class="divider-horizontal-container">
+      <div class="divider-horizontal"></div>
+    </div>
+  </div>
+
+  <button class="new-task-row">
+    <div class="new-task-icon">
+      <div class="icon-plus"></div>
+    </div>
+    <div class="new-task-text">New Task</div>
+  </button>
+  
+</div>
+
+<h3 nz-typography>Finished Tasks</h3>

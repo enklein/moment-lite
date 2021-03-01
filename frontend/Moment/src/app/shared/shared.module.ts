@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SharedRoutingModule } from './shared-routing.module';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
@@ -25,7 +25,8 @@ import { ClockComponent } from './components/clock/clock.component';
     NzCheckboxModule,
     NzTypographyModule,
     NzIconModule,
-    NzAffixModule
+    NzAffixModule,
+    FormsModule
   ],
   exports: [
     NzFormModule,
@@ -36,6 +37,7 @@ import { ClockComponent } from './components/clock/clock.component';
     NzTypographyModule,
     NzIconModule,
     NzAffixModule,
+    FormsModule,
     ClockComponent
   ]
 })

@@ -1,6 +1,8 @@
 <nz-layout class="app-layout">
   <nz-layout>
     <nz-header>
+
+      <!-- Header -->
       <div class="app-header">
         <div class="sidebar-logo">
           <a href="#" target="_blank" class="logo-holder">
@@ -10,14 +12,16 @@
         </div>
         <a class="login-logout-link" *ngIf="!loggedIn" routerLink="/auth/login">
           <div>Login</div>
-          <img class="login-icon" src="../assets/images/icon-login.svg" alt="">
+          <div class="auth-icon login-icon"></div>
         </a>
         <a class="login-logout-link" *ngIf="loggedIn" routerLink="/auth/logout">
           <div>Logout</div>
-          <img class="login-icon" src="../assets/images/icon-logout.svg" alt="">
+          <div class="auth-icon logout-icon"></div>
         </a>
       </div>
     </nz-header>
+
+    <!-- Sider -->
     <nz-layout>
       <nz-sider class="menu-sidebar"
             nzTheme="light"
@@ -49,12 +53,16 @@
           </li>
         </ul>
       </nz-sider>
+      
+      <!-- Page Contents -->
       <nz-content>
         <div class="inner-content">
           <router-outlet></router-outlet>
         </div>
       </nz-content>
     </nz-layout>
+
+    <!-- Footer -->
     <nz-footer *ngIf="loggedIn">
       <nz-affix>
         <div class="app-footer">
