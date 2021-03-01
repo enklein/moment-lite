@@ -23,16 +23,29 @@
             nzTheme="light"
             nzWidth="256px"
             nzBreakpoint="md"
-            [nzTrigger]="null">
+            [nzTrigger]="null"
+            *ngIf="loggedIn">
         <ul nz-menu nzTheme="light" nzMode="inline">
-          <!-- <li nz-menu-item nzMatchRouter nzIcon="login">
-            <a routerLink="/auth">Login</a>
-          </li> -->
           <li nz-menu-item nzMatchRouter>
-            <a>Tasks</a>
+            <a routerLink="/tasks">Tasks</a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a>Activity</a>
+            <a routerLink="/activity">Activity</a>
+          </li>
+        </ul>
+      </nz-sider>
+      <nz-sider class="menu-sidebar"
+            nzTheme="light"
+            nzWidth="256px"
+            nzBreakpoint="md"
+            [nzTrigger]="null"
+            *ngIf="!loggedIn">
+        <ul nz-menu nzTheme="light" nzMode="inline">
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/auth/login">Login</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/auth/register">Register</a>
           </li>
         </ul>
       </nz-sider>
