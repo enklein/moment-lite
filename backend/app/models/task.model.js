@@ -1,5 +1,4 @@
 const app_userModel = require("./app_user.model");
-const projectModel = require("./project.model");
 
 module.exports = (sequelize, Sequelize) => {
   const Task = sequelize.define("task", {

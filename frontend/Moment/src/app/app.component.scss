@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap');
+
 :host {
   display: flex;
   text-rendering: optimizeLegibility;
@@ -50,9 +52,9 @@
   display: inline-block;
   margin: 0 0 0 12px;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 22px;
-  font-family: SFMono-Regular,Consolas,'Liberation Mono',Menlo,Courier,monospace;
+  // font-family: 'IBM Plex Mono',SFMono-Regular,Consolas,'Liberation Mono',Menlo,Courier,monospace;
   vertical-align: middle;
   padding-top: 4px;
 }
