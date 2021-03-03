@@ -14,6 +14,13 @@ export class LoginComponent implements OnInit {
       this.validateForm.controls[i].markAsDirty();
       this.validateForm.controls[i].updateValueAndValidity();
     }
+
+    console.log(
+      this.validateForm.value.userName,
+      this.validateForm.value.password
+    )
+
+    // this.validateForm.reset();
   }
 
   constructor(private fb: FormBuilder) {}
@@ -21,7 +28,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.validateForm = this.fb.group({
       userName: [null, [Validators.required]],
-      password: [null, [Validators.required]]
+      password: [null, [Validators.required, Validators.minLength(6)]]
     });
   }
 }

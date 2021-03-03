@@ -5,16 +5,28 @@
 </div>
 <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
   <nz-form-item>
-    <nz-form-control nzErrorTip="Please input your username!">
+    <nz-form-control nzErrorTip="Please input your username.">
       <nz-input-group>
-        <input type="text" nz-input formControlName="userName" placeholder="Username" />
+        <input
+          type="text"
+          nz-input
+          formControlName="userName"
+          placeholder="Username" 
+        />
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
-    <nz-form-control nzErrorTip="Please input your Password!">
+    <nz-form-control nzErrorTip="Please input your full password.">
       <nz-input-group>
-        <input type="password" nz-input formControlName="password" placeholder="Password" />
+        <input
+          type="password"
+          nz-input
+          formControlName="password"
+          placeholder="Password"
+          required
+          minlength="6"
+        />
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>

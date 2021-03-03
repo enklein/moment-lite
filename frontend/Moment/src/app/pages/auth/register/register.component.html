@@ -7,28 +7,53 @@
   <nz-form-item>
     <nz-form-control nzErrorTip="Please input a valid email!">
       <nz-input-group>
-        <input type="text" nz-input formControlName="email" placeholder="* Email" />
+        <input
+          type="text"
+          nz-input
+          formControlName="email"
+          placeholder="* Email"
+          required
+          email
+        />
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
     <nz-form-control nzErrorTip="Please input your username!">
       <nz-input-group>
-        <input type="text" nz-input formControlName="userName" placeholder="* Username" />
+        <input
+          type="text"
+          nz-input
+          formControlName="userName"
+          placeholder="* Username"
+          required
+        />
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
     <nz-form-control nzErrorTip="Please input your password!">
       <nz-input-group>
-        <input type="password" nz-input formControlName="password" placeholder="* Password" />
+        <input
+          type="password"
+          nz-input
+          formControlName="password"
+          placeholder="* Password"
+          required
+          minlength="6"
+        />
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
     <nz-form-control nzErrorTip="Please confirm your password!">
       <nz-input-group>
-        <input type="password" nz-input formControlName="password" placeholder="* Confirm Password" />
+        <input
+          type="password"
+          nz-input
+          formControlName="password"
+          placeholder="* Confirm Password"
+        />
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
