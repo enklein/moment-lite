@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,21 +10,32 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   validateForm!: FormGroup;
 
+  constructor(private authService: AuthService, private fb: FormBuilder) {}
+
   submitForm(): void {
     for (const i in this.validateForm.controls) {
       this.validateForm.controls[i].markAsDirty();
       this.validateForm.controls[i].updateValueAndValidity();
     }
 
-    console.log(
-      this.validateForm.value.userName,
-      this.validateForm.value.password
-    )
+    // if (!this.validateForm.valid) {
+    //   return;
+    // }
+    
+    const username = this.validateForm.value.userName;
+    const password = this.validateForm.value.password;
+    
+    this.authService.login(username, password).subscribe(
+      resData => {
+        console.log(resData);
+      },
+      error => {
+        console.log(error);
+      }
+    );
 
     // this.validateForm.reset();
   }
-
-  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({

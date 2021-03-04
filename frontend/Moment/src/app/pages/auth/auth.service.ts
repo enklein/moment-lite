@@ -14,7 +14,7 @@ export class AuthService {
 
   register(username: string, email: string, password: string) {
     return this.http.post<AuthResponseData>(
-      '/api/auth/register',
+      'http://localhost:8080/api/auth/register',
       {
         username: username,
         email: email,
@@ -25,7 +25,7 @@ export class AuthService {
 
   login(username: string, password: string) {
     return this.http.post<AuthResponseData>(
-      '/api/auth/login',
+      'http://localhost:8080/api/auth/login',
       {
         username: username,
         password: password
