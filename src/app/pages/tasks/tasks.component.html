@@ -1,39 +1,13 @@
 <h2 nz-typography class="margin-bottom-fix">Tasks</h2>
 <div class="tasks-list">
 
-  <div class="task-row">
+  <div class="task-row" *ngFor="let task of loadedTasks">
     <div class="task-contents">
-      <label nz-checkbox [(ngModel)]="taskStatus" class="checkbox-label active-task-text">Checkbox</label>
-      <div class="task-time">
+      <label nz-checkbox [(ngModel)]="task.status" class="checkbox-label active-task-text"> {{ task.task }}</label>
+      <!-- <div class="task-time">
         <div class="session-count-text"> 1 session</div>
         <div class="active-task-text">00:00:00</div>
-      </div>
-    </div>
-    <div class="divider-horizontal-container">
-      <div class="divider-horizontal"></div>
-    </div>
-  </div>
-  
-  <div class="task-row">
-    <div class="task-contents">
-      <label nz-checkbox [(ngModel)]="taskStatus" class="checkbox-label active-task-text">Checkbox</label>
-      <div class="task-time">
-        <div class="session-count-text"> 1 session</div>
-        <div class="active-task-text">00:00:00</div>
-      </div>
-    </div>
-    <div class="divider-horizontal-container">
-      <div class="divider-horizontal"></div>
-    </div>
-  </div>
-  
-  <div class="task-row">
-    <div class="task-contents">
-      <label nz-checkbox [(ngModel)]="taskStatus" class="checkbox-label active-task-text">Checkbox</label>
-      <div class="task-time">
-        <div class="session-count-text"> 1 session</div>
-        <div class="active-task-text">00:00:00</div>
-      </div>
+      </div> -->
     </div>
     <div class="divider-horizontal-container">
       <div class="divider-horizontal"></div>
