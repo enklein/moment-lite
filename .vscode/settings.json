@@ -1,6 +1,7 @@
 {
   "discord.enabled": true,
   "cSpell.words": [
+    "DBHOST",
     "antd",
     "codelyzer",
     "devkit",
