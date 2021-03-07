@@ -1,3 +1,9 @@
 {
-  "discord.enabled": true
+  "discord.enabled": true,
+  "cSpell.words": [
+    "antd",
+    "codelyzer",
+    "devkit",
+    "jasminewd"
+  ]
 }
