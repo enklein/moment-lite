@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { TokenStorageService } from '../token-storage.service';
 
 @Component({
   selector: 'app-register',
@@ -9,8 +10,10 @@ import { AuthService } from '../auth.service';
 })
 export class RegisterComponent implements OnInit {
   validateForm!: FormGroup;
+  isLoggedIn = false;
+  isLoginFailed = false;
   
-  constructor(private authService: AuthService, private fb: FormBuilder) {}
+  constructor(private authService: AuthService, private fb: FormBuilder, private tokenStorage: TokenStorageService) {}
 
   submitForm(): void {
     for (const i in this.validateForm.controls) {
@@ -24,6 +27,12 @@ export class RegisterComponent implements OnInit {
     this.authService.register(username, email, password).subscribe(
       resData => {
         console.log(resData);
+        this.tokenStorage.saveToken(resData.accessToken);
+        this.tokenStorage.saveUser(resData);
+
+        this.isLoginFailed = false;
+        this.isLoggedIn = true;
+        this.reloadPage();
       },
       error => {
         console.log(error.message);
@@ -40,6 +49,10 @@ export class RegisterComponent implements OnInit {
       username: [null, [Validators.required]],
       password: [null, [Validators.required]]
     });
+
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+    }
   }
 
   reloadPage(): void {
