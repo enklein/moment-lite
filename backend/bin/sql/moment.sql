@@ -2,6 +2,8 @@ DROP TABLE IF EXISTS app_user CASCADE;
 DROP TABLE IF EXISTS app_session CASCADE;
 DROP TABLE IF EXISTS task CASCADE;
 
+create extension if not exists "uuid-ossp";
+
 CREATE TABLE app_user (
   user_uuid UUID NOT NULL DEFAULT uuid_generate_v4() PRIMARY KEY,
   username VARCHAR(32) NOT NULL UNIQUE,
