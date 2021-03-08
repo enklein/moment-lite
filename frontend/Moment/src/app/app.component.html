@@ -14,7 +14,7 @@
           <div>Login</div>
           <div class="auth-icon login-icon"></div>
         </a>
-        <a class="login-logout-link" *ngIf="loggedIn" routerLink="/auth/logout">
+        <a class="login-logout-link" *ngIf="loggedIn" (click)="logout()">
           <div>Logout</div>
           <div class="auth-icon logout-icon"></div>
         </a>

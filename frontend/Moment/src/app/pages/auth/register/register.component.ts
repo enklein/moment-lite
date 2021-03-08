@@ -18,20 +18,15 @@ export class RegisterComponent implements OnInit {
       this.validateForm.controls[i].updateValueAndValidity();
     }
 
-    // if (!this.validateForm.valid) {
-    //   return;
-    // }
-
-    const username = this.validateForm.value.userName;
-    const email = this.validateForm.value.email;
-    const password = this.validateForm.value.password;
-
+    const { username, email, password } = this.validateForm.value;
+    console.log("values check 1", this.validateForm.value);
+    console.log("Values check 2", username, email, password)
     this.authService.register(username, email, password).subscribe(
       resData => {
         console.log(resData);
       },
       error => {
-        console.log(error);
+        console.log(error.message);
       }
     );
   }
@@ -42,10 +37,12 @@ export class RegisterComponent implements OnInit {
         Validators.required,
         Validators.email
       ]],
-      userName: [null, [Validators.required]],
-      password: [null, [Validators.required]],
-      confirmPassword: [null, [Validators.required]],
-      agree: [false, [Validators.requiredTrue]]
+      username: [null, [Validators.required]],
+      password: [null, [Validators.required]]
     });
+  }
+
+  reloadPage(): void {
+    window.location.reload();
   }
 }
