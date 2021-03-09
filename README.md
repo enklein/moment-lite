@@ -1,6 +1,10 @@
 # Moment
 
-Portfolio project. Backend uses Node.js, Express, CORS, Authentication, & Authorization Middlewares, Sequelize, JWT. Frontend uses Angular, NG-ZORRO.
+Portfolio project. Manage tasks and track sessions for each task with MomentLite.
+
+**Frontend**: Angular with NG-ZORRO.
+
+**Backend**: Node, Express, CORS, bcryptjs, jsonwebtoken, Sequelize, and PostgreSQL
 
 ## Frontend
 Setup and run the frontend:
