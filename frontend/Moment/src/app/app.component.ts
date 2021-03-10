@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TokenStorageService } from './pages/auth/token-storage.service';
+import { AuthService } from './pages/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,18 +9,18 @@ import { TokenStorageService } from './pages/auth/token-storage.service';
 export class AppComponent {
   loggedIn = false;
   
-  constructor(private tokenStorageService: TokenStorageService) {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
-    this.loggedIn = !!this.tokenStorageService.getToken();
+    this.loggedIn = !!this.authService.isLoggedIn;
 
     if (this.loggedIn) {
-      const user = this.tokenStorageService.getUser();
+      const user = this.authService.getUser();
     }
   }
 
   logout(): void {
-    this.tokenStorageService.signOut();
+    this.authService.signOut();
     window.location.reload();
   }
 }
