@@ -21,11 +21,8 @@ export class RegisterComponent implements OnInit {
     }
 
     const { username, email, password } = this.validateForm.value;
-    console.log("values check 1", this.validateForm.value);
-    console.log("Values check 2", username, email, password)
     this.authService.register(username, email, password).subscribe(
       resData => {
-        console.log(resData);
         this.authService.saveToken(resData.accessToken);
         this.authService.saveUser(resData);
 

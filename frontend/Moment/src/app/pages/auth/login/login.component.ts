@@ -30,8 +30,6 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.reloadPage();
-
-        console.log(resData);
       },
       error => {
         console.log(error);

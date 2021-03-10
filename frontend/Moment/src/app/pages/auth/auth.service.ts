@@ -55,7 +55,6 @@ export class AuthService {
   }
 
   public getToken(): string | null {
-    console.log('getToken ran', window.sessionStorage.getItem(TOKEN_KEY))
     return window.sessionStorage.getItem(TOKEN_KEY);
   }
 
@@ -65,11 +64,8 @@ export class AuthService {
   }
 
   public getUser(): any {
-    console.log('getUser method ran')
-    console.log(window.sessionStorage.getItem(USER_KEY))
     const user = window.sessionStorage.getItem(USER_KEY);
     if (user) {
-      console.log(JSON.parse(user));
       return JSON.parse(user);
     }
 
