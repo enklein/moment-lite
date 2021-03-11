@@ -72,6 +72,23 @@
   align-items: center;
 }
 
+.menu-button {
+  padding-right: 36px;
+  padding-left: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #003A8C;
+  height: 40px;
+  max-width: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .menu-button {
+    display: none;
+  }
+}
+
 .login-logout-link:hover {
   color: #003A8C;
 }

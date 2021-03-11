@@ -11,7 +11,7 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzAffixModule } from 'ng-zorro-antd/affix';
 import { ClockComponent } from './components/clock/clock.component';
-
+import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 
 @NgModule({
   declarations: [ClockComponent],
@@ -26,7 +26,8 @@ import { ClockComponent } from './components/clock/clock.component';
     NzTypographyModule,
     NzIconModule,
     NzAffixModule,
-    FormsModule
+    FormsModule,
+    NzDrawerModule
   ],
   exports: [
     NzFormModule,
@@ -38,7 +39,8 @@ import { ClockComponent } from './components/clock/clock.component';
     NzIconModule,
     NzAffixModule,
     FormsModule,
-    ClockComponent
+    ClockComponent,
+    NzDrawerModule
   ]
 })
 export class SharedModule { }

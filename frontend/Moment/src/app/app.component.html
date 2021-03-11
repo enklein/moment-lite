@@ -10,23 +10,19 @@
             <h1>Moment</h1>
           </a>
         </div>
-        <a class="login-logout-link" *ngIf="!loggedIn" routerLink="/auth/login">
-          <div>Login</div>
-          <div class="auth-icon login-icon"></div>
-        </a>
-        <a class="login-logout-link" *ngIf="loggedIn" (click)="logout()">
-          <div>Logout</div>
-          <div class="auth-icon logout-icon"></div>
+        <a class="menu-button" (click)="open()">
+          <i nz-icon nzType="menu" nzTheme="outline"></i>
         </a>
       </div>
     </nz-header>
-
     <!-- Sider -->
     <nz-layout>
       <nz-sider class="menu-sidebar"
             nzTheme="light"
             nzWidth="256px"
+            nzCollapsible
             nzBreakpoint="md"
+            [nzCollapsedWidth]="0"
             [nzTrigger]="null"
             *ngIf="loggedIn">
         <ul nz-menu nzTheme="light" nzMode="inline">
@@ -35,6 +31,9 @@
           </li>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/activity">Activity</a>
+          </li>
+          <li nz-menu-item nzMatchRouter (click)="logout()">
+            <a>Logout</a>
           </li>
         </ul>
       </nz-sider>
@@ -54,6 +53,19 @@
         </ul>
       </nz-sider>
       
+      <!-- Drawer -->
+      <!-- <div class="drawer-control ant-layout-sider-zero-width-trigger ant-layout-sider-zero-width-trigger-left" (click)="open()">
+        <i nz-icon="" nztype="bars" class="anticon anticon-bars"><svg viewBox="0 0 1024 1024" focusable="false" fill="currentColor" width="1em" height="1em" data-icon="bars" aria-hidden="true"><path d="M912 192H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 284H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 284H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM104 228a56 56 0 10112 0 56 56 0 10-112 0zm0 284a56 56 0 10112 0 56 56 0 10-112 0zm0 284a56 56 0 10112 0 56 56 0 10-112 0z"></path></svg></i>
+      </div> -->
+
+      <nz-drawer [nzClosable]="open" [nzVisible]="visible" [nzPlacement]="placement" (nzOnClose)="close()">
+        <ng-container *nzDrawerContent>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </ng-container>
+      </nz-drawer>
+
       <!-- Page Contents -->
       <nz-content>
         <div class="inner-content">

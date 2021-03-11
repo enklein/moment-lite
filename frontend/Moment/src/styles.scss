@@ -11,3 +11,16 @@
   padding: 0;
   align-self:flex-end;
 }
+
+.ant-layout-sider-zero-width-trigger-left {
+  background: #003A8C !important;
+  color: white !important;
+  top: 64px;
+  left: 0px;
+}
+
+@media screen and (max-width: 576px) {
+  .inner-content {
+    padding: 24px !important;
+  }
+}

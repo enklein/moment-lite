@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './pages/auth/auth.service';
+import { NzDrawerPlacement } from 'ng-zorro-antd/drawer';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,16 @@ import { AuthService } from './pages/auth/auth.service';
 })
 export class AppComponent {
   loggedIn = false;
+
+  visible = false;
+  placement: NzDrawerPlacement = 'left';
+  open(): void {
+    this.visible = true;
+  }
+
+  close(): void {
+    this.visible = false;
+  }
   
   constructor(private authService: AuthService) {}
 
