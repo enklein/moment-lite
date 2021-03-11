@@ -40,7 +40,9 @@
       <nz-sider class="menu-sidebar"
             nzTheme="light"
             nzWidth="256px"
+            nzCollapsible
             nzBreakpoint="md"
+            [nzCollapsedWidth]="0"
             [nzTrigger]="null"
             *ngIf="!loggedIn">
         <ul nz-menu nzTheme="light" nzMode="inline">
@@ -60,9 +62,25 @@
 
       <nz-drawer [nzClosable]="open" [nzVisible]="visible" [nzPlacement]="placement" (nzOnClose)="close()">
         <ng-container *nzDrawerContent>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
+          <ul *ngIf="!loggedIn" class="drawer-menu">
+            <li class="drawer-menu-item">
+              <a class="drawer-menu-link" routerLink="/auth/login" (click)="close()">Login</a>
+            </li>
+            <li class="drawer-menu-item">
+              <a class="drawer-menu-link" routerLink="/auth/register" (click)="close()">Register</a>
+            </li>
+          </ul>
+          <ul *ngIf="loggedIn" class="drawer-menu">
+            <li class="drawer-menu-item">
+              <a class="drawer-menu-link" routerLink="/tasks" (click)="close()">Tasks</a>
+            </li>
+            <li class="drawer-menu-item">
+              <a class="drawer-menu-link" routerLink="/activity" (click)="close()">Activity</a>
+            </li>
+            <li class="drawer-menu-item" (click)="logout()">
+              <a class="drawer-menu-link">Logout</a>
+            </li>
+          </ul>
         </ng-container>
       </nz-drawer>
 
