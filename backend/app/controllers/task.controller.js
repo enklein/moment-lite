@@ -6,8 +6,7 @@ exports.createTask = (req, res) => {
   Task.create({
     task_name: req.body.task_name,
     task_status: req.body.task_status,
-    user_uuid: req.user_uuid,
-    project_uuid: req.body.project_uuid
+    user_uuid: req.user_uuid
   })
   .then(
     res.status(201).send({message: "Task was created successfully!"})
@@ -36,8 +35,7 @@ exports.updateTask = (req, res) => {
     {
       task_name: old_task['task_name'],
       task_status: old_task['task_status'],
-      user_uuid: old_task['user_uuid'],
-      project_uuid: old_task['project_uuid']
+      user_uuid: old_task['user_uuid']
     },
     {
       where: {

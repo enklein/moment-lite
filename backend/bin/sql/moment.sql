@@ -23,7 +23,7 @@ CREATE TABLE app_session (
 CREATE TABLE task (
   task_uuid UUID NOT NULL DEFAULT uuid_generate_v4() PRIMARY KEY,
   task_name VARCHAR(2048) NOT NULL,
-  task_status INTEGER NOT NULL DEFAULT 1,
+  task_status BOOLEAN NOT NULL DEFAULT 0,
   user_uuid UUID NOT NULL
 );
 

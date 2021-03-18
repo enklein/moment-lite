@@ -15,6 +15,7 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 
 import { SharedModule } from './shared/shared.module'
+import { authInterceptorProviders } from './pages/auth/auth.interceptor';
 
 registerLocaleData(en);
 
@@ -33,7 +34,7 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     SharedModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  providers: [{ provide: NZ_I18N, useValue: en_US }, authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
