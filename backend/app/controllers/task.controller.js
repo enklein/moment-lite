@@ -1,5 +1,9 @@
 const db = require("../models");
 const Task = db.task;
+const Session = db.app_session;
+
+Task.hasMany(Session, { foreignKey: { name: 'task_uuid', allowNull: true }});
+Session.belongsTo(Task, { foreignKey: { name: 'task_uuid', allowNull: true }});
 
 exports.createTask = (req, res) => {
   // Create a task
@@ -69,9 +73,13 @@ exports.getAllTasks = (req, res) => {
   Task.findAll({
     where: {
       user_uuid: req.user_uuid
-    }
+    },
+    include: [{
+      model: Session
+    }]
   }).then(tasks => {
     if (tasks) {
+      console.log(tasks)
       res.status(201).send(tasks);
     }
   }).catch(err => {
