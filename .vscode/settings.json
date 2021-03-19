@@ -1,5 +1,5 @@
 {
-  "discord.enabled": true,
+  "discord.enabled": false,
   "cSpell.words": [
     "DBHOST",
     "antd",
