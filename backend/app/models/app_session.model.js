@@ -15,9 +15,6 @@ module.exports = (sequelize, Sequelize) => {
     session_end: {
       type: Sequelize.DATE,
     },
-    session_age: {
-      type: Sequelize.NUMBER,
-    },
     session_note: {
       type: Sequelize.STRING
     },

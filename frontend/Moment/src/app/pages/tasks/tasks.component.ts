@@ -19,7 +19,6 @@ export class TasksComponent implements OnInit {
     this.taskService.getTasks().subscribe(
       resData => {
         this.tasks = resData;
-        
         this.tasks.forEach(task => {
           task.total_session_count = task.app_sessions.length;
 
@@ -32,16 +31,13 @@ export class TasksComponent implements OnInit {
         console.log(error);
       }
     );
-    // console.log();
   }
 
   calculateTaskTime(sessions: AppSession[]) {
     let sum = 0;
-
-    sessions.forEach((session: AppSession) => {
-      sum = sum + session.session_age;
+    sessions.forEach((session:AppSession) => {
+      sum = sum + (new Date(session.session_end).getTime() - new Date(session.session_start).getTime())
     })
-    
     return sum;
   }
 }
