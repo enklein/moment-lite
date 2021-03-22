@@ -13,9 +13,8 @@ CREATE TABLE app_user (
 
 CREATE TABLE app_session (
   session_uuid UUID NOT NULL PRIMARY KEY,
-  session_start TIMESTAMP NOT NULL,
-  session_end TIMESTAMP,
-  session_age integer GENERATED ALWAYS AS (extract(EPOCH FROM (session_end - session_start))) STORED,
+  session_start TIMESTAMPTZ NOT NULL,
+  session_end TIMESTAMPTZ,
   session_note VARCHAR(2048),
   user_uuid UUID NOT NULL,
   task_uuid UUID

@@ -38,8 +38,13 @@ export class TasksComponent implements OnInit {
   calculateTaskTime(sessions: AppSession[]) {
     let sum = 0;
 
-    sessions.forEach((session: AppSession) => {
-      sum = sum + session.session_age;
+    // sessions.forEach((session: AppSession) => {
+    //   sum = sum + session.session_age;
+    // })
+
+    sessions.forEach((session:AppSession) => {
+      return session.session_start, session.session_end;
+      // sum = session.session_end - session.session_start
     })
     
     return sum;
