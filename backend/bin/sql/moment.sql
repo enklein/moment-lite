@@ -13,8 +13,8 @@ CREATE TABLE app_user (
 
 CREATE TABLE app_session (
   session_uuid UUID NOT NULL PRIMARY KEY,
-  session_start TIMESTAMPTZ NOT NULL,
-  session_end TIMESTAMPTZ,
+  session_start TIMESTAMP NOT NULL,
+  session_end TIMESTAMP,
   session_note VARCHAR(2048),
   user_uuid UUID NOT NULL,
   task_uuid UUID
