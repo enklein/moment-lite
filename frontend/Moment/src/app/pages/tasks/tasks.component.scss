@@ -61,6 +61,12 @@
   margin-right: 24px;
 }
 
+@media screen and (max-width: 576px) {
+  .session-count-text {
+    display: none;
+  }
+}
+
 .task-time {
   display: flex;
   flex-direction: row;

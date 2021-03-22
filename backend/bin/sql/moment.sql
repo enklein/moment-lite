@@ -15,6 +15,7 @@ CREATE TABLE app_session (
   session_uuid UUID NOT NULL PRIMARY KEY,
   session_start TIMESTAMP NOT NULL,
   session_end TIMESTAMP,
+  session_age session_age interval GENERATED ALWAYS AS (session_end - session_start) STORED,
   session_note VARCHAR(2048),
   user_uuid UUID NOT NULL,
   task_uuid UUID
@@ -23,7 +24,7 @@ CREATE TABLE app_session (
 CREATE TABLE task (
   task_uuid UUID NOT NULL DEFAULT uuid_generate_v4() PRIMARY KEY,
   task_name VARCHAR(2048) NOT NULL,
-  task_status BOOLEAN NOT NULL DEFAULT 0,
+  task_status BOOLEAN NOT NULL DEFAULT false,
   user_uuid UUID NOT NULL
 );
 

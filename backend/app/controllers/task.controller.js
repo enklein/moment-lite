@@ -79,7 +79,6 @@ exports.getAllTasks = (req, res) => {
     }]
   }).then(tasks => {
     if (tasks) {
-      console.log(tasks)
       res.status(201).send(tasks);
     }
   }).catch(err => {

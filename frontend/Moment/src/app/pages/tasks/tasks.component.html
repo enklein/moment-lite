@@ -5,15 +5,22 @@
     <div class="task-contents">
       <label nz-checkbox [(ngModel)]="task.task_status" class="checkbox-label active-task-text">{{task.task_name}}</label>
       <div class="task-time">
-        <div class="session-count-text"> 1 session</div>
-        <div class="active-task-text">00:00:00</div>
+        <div *ngIf="task.total_session_count" class="session-count-text">
+          {{task.total_session_count}} session<span *ngIf="task.total_session_count > 1">s</span>
+        </div>
+        <div *ngIf="task.total_session_time > 0; else sessionEmpty" class="active-task-text">
+          {{task.total_session_time * 1000 | date:'HH:mm:ss':'UTC'}}
+        </div>
+        <ng-template #sessionEmpty>
+          <div class="active-task-text">00:00:00</div>
+        </ng-template>
       </div>
     </div>
     <div class="divider-horizontal-container">
       <div class="divider-horizontal"></div>
     </div>
   </div>
-
+  
   <button class="new-task-row">
     <div class="new-task-icon">
       <div class="icon-plus"></div>

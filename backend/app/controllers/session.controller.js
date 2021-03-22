@@ -7,9 +7,9 @@ exports.getAllSessions = (req, res) => {
     where: {
       user_uuid: req.user_uuid
     }
-  }).then(users => {
-    if (users) {
-      res.status(201).send(users);
+  }).then(sessions => {
+    if (sessions) {
+      res.status(201).send(sessions);
     }
   }).catch(err => {
     res.status(500).send({ message: err.message });
