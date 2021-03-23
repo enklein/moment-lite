@@ -4,7 +4,7 @@
   <ng-container *ngFor="let task of tasks">
     <div *ngIf="task.task_status == false" class="task-row">
       <div class="task-contents">
-        <label nz-checkbox [(ngModel)]="task.task_status" class="checkbox-label task-text">{{task.task_name}}</label>
+        <label nz-checkbox [(ngModel)]="task.task_status" class="checkbox-label task-text" (ngModelChange)="changeStatus(task)">{{task.task_name}}</label>
         <div class="task-time">
           <div *ngIf="task.total_session_count" class="session-count-text">
             {{task.total_session_count}} session<span *ngIf="task.total_session_count > 1">s</span>
@@ -36,7 +36,7 @@
 <ng-container *ngFor="let task of tasks">
   <div *ngIf="task.task_status == true" class="task-row">
     <div class="task-contents">
-      <label nz-checkbox [(ngModel)]="task.task_status" class="checkbox-label task-text inactive-task">{{task.task_name}}</label>
+      <label nz-checkbox [(ngModel)]="task.task_status" class="checkbox-label task-text inactive-task" (ngModelChange)="changeStatus(task)">{{task.task_name}}</label>
       <div class="task-time">
         <div *ngIf="task.total_session_count" class="session-count-text">
           {{task.total_session_count}} session<span *ngIf="task.total_session_count > 1">s</span>

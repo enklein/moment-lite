@@ -26,7 +26,7 @@ exports.updateTask = (req, res) => {
       user_uuid: req.user_uuid
     }
   });
-
+  
   ['task_name', 'task_status', 'user_uuid'].forEach(key => {
     if (req.body[key]) old_task[key] = req.body[key];
   });
