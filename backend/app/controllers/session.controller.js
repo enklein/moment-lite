@@ -34,6 +34,7 @@ exports.newSession = (req, res) => {
   // Save session to db
   Session.create({
     session_start: req.body.session_start,
+    session_end: req.body.session_end,
     session_note: req.body.session_note,
     user_uuid: req.user_uuid,
     task_uuid: req.body.task_uuid
