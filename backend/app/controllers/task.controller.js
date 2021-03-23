@@ -12,14 +12,10 @@ exports.createTask = (req, res) => {
     task_status: req.body.task_status,
     user_uuid: req.user_uuid
   })
-  .then(
-    res.status(201).send({message: "Task was created successfully!"})
-  )
-  .catch(
-    err => {
-      res.status(500).send({ message: err.message });
-    }
-  );
+  .then(res.status(201).send({message: "Task was created successfully!"}))
+  .catch(err => {
+    res.status(500).send({ message: err.message });
+  });
 }
 
 exports.updateTask = (req, res) => {
@@ -31,7 +27,7 @@ exports.updateTask = (req, res) => {
     }
   });
 
-  ['task_name', 'task_status', 'user_uuid', 'project_uuid'].forEach(key => {
+  ['task_name', 'task_status', 'user_uuid'].forEach(key => {
     if (req.body[key]) old_task[key] = req.body[key];
   });
 
