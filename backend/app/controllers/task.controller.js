@@ -28,7 +28,7 @@ exports.updateTask = (req, res) => {
   });
   
   ['task_name', 'task_status', 'user_uuid'].forEach(key => {
-    if (req.body[key]) old_task[key] = req.body[key];
+    if (req.body.hasOwnProperty(key)) old_task[key] = req.body[key];
   });
 
   Task.update(

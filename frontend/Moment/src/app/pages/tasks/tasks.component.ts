@@ -42,18 +42,13 @@ export class TasksComponent implements OnInit {
   }
 
   changeStatus(task) {
-    console.log("First run of task service", task.task_status)
     this.taskService.checkTask(task.task_uuid, task.task_status).subscribe(
       resData => {
         console.log(resData)
-        console.log("Second run", task.task_status)
       },
       error => {
         console.log(error);
       }
     );
-    // console.log("Third run of task service", task.task_status)
-    // console.log("changeStatus activated")
-    // console.log(task.task_status)
   }
 }

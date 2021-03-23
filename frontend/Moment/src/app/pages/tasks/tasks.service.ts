@@ -29,21 +29,12 @@ export class TaskService {
   // update task true/false
   checkTask(task_uuid: string, task_status: boolean): Observable<any> {
     let taskUrl = `http://localhost:8080/api/task/${task_uuid}`
-    if (task_status == true) {
-      return this.http.put<Task>(
-        taskUrl,
-        {
-          task_status: true
-        }, httpOptions
-      );
-    } else if (task_status == false) {
-      return this.http.put<Task>(
-        taskUrl,
-        {
-          task_status: "false"
-        }, httpOptions
-      );
-    }
+    return this.http.put<Task>(
+      taskUrl,
+      {
+        task_status: task_status
+      }, httpOptions
+    );
   }
 
   //update task
